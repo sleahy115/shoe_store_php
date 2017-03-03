@@ -49,14 +49,15 @@
             $found_store = new Store($store_name, $id);
             return $found_store;
         }
-        
-        function update()
-        {
 
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE stores SET store_name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setStoreName($new_name);
         }
-        function delete()
+        function deleteStore()
         {
-
+            $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
         }
     }
 
