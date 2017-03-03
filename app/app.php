@@ -25,10 +25,6 @@
         return $app['twig']->render('index.html.twig');
     });
 
-    $app->post("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig');
-    });
-
     $app->get("/store_list", function() use ($app) {
         return $app['twig']->render('store_list.html.twig', array('stores'=>Store::getAll()));
     });
@@ -88,6 +84,21 @@
         $store->addBrands($brand);
         $brands_by_store = $store->getBrands();
         return $app['twig']->render('add_brand.html.twig', array('store'=>$store, 'brands'=> Brand::getAll(), 'brands_by_store'=> $brands_by_store));
+    });
+
+    $app->get("/add_store_by_brand/{id}", function($id) use ($app) {
+        $brand = Brand::find($id);
+        $stores_by_brand = $brand->getStores();
+        return $app['twig']->render('add_store.html.twig', array('brand'=>$brand, 'stores'=>Store::getAll(), 'stores_by_brand'=>$stores_by_brand));
+    });
+
+    $app->post("/add_store_by_brand/{id}", function($id) use ($app) {
+        $brand = Brand::find($id);
+        $store_id =$_POST['store_id'];
+        $store = Store::find($store_id);
+        $brand->addStore($store);
+        $stores_by_brand = $brand->getStores();
+        return $app['twig']->render('add_store.html.twig', array('brand'=>$brand, 'stores'=> Store::getAll(), 'stores_by_brand'=> $stores_by_brand));
     });
 
     $app->get("/delete_all_brands", function() use ($app) {;

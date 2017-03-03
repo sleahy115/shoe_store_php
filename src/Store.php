@@ -79,7 +79,7 @@
             $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$brand_id} , {$store_id});");
         }
 
-        function getbrands()
+        function getBrands()
         {
             $returned_brands = $GLOBALS['DB']->query(
                 "SELECT brands.*
