@@ -15,7 +15,7 @@
     {
         function teardown()
         {
-            Store::deleteAll();
+            brand::deleteAll();
             Brand::deleteAll();
         }
         function test_getAll()
@@ -46,5 +46,23 @@
            $result = Brand::getAll();
            //Assert
            $this->assertEquals($result[0],$brand_test);
+       }
+
+       function test_find()
+       {
+           //Arrange
+           $brand_name = 'Adidas';
+           $new_brand = new brand($brand_name);
+           $new_brand->save();
+
+           $brand_name2 = 'Nike';
+           $new_brand2 = new brand($brand_name2);
+           $new_brand2->save();
+
+           //Act
+           $result = brand::find($new_brand->getId());
+
+           //Assert
+           $this->assertEquals($new_brand, $result);
        }
     }
