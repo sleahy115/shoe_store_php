@@ -16,10 +16,14 @@
 
             {% if stores is not empty %}
                 {% for store in stores %}
-                <li>{{store.getStoreName}}</li>
-                <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
+                    <li>{{store.getStoreName}}</li>
+                    <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
+                    <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
+                    <form action="/delete_store/{{store.getId}}" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit"> delete this store </button>
+                    </form>
                 {% endfor %}
-                <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
             {% endif %}
         </div> <!-- container -->
         {% endblock %}

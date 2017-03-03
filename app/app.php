@@ -49,4 +49,10 @@
     return $app['twig']->render('index.html.twig', array('stores'=>Store::getAll()));
     });
 
+    $app->delete("/delete_store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->deleteStore();
+        return $app['twig']->render('index.html.twig', array('stores'=>Store::getAll(), 'store'=>$store));
+        });
+
 return $app;
