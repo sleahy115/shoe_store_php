@@ -1,0 +1,20 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h1>Brands</h1>
+        <form action="/brand_list" method="post">
+            <label for="brand_name">Enter Brand name</label>
+            <input type="text" name="brand_name">
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if brands is not empty %}
+        <p>Click on brand name to view and add stores</p>
+            {% for brand in brands %}
+                <a href="add_brand/{{brand.getId}}"><li>{{brand.getBrandName}}</li></a>
+            {% endfor %}
+            <a href="/delete_all_brands"><button type="button">Delete all brands</button></a>
+        {% endif %}
+    </div> <!-- container -->
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "index.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h1>Stores</h1>
+        <form action="/store_list" method="post">
+            <label for="store_name">Enter store name</label>
+            <input type="text" name="store_name">
+            <button type="submit">Submit</button>
+        </form>
+        {% if stores is not empty %}
+            <p>Click on store name to view and add brands</p>
+            {% for store in stores %}
+                <a href="add_brand_to_store/{{store.getId}}"><li>{{store.getStoreName}}</li></a>
+
+                <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
+
+                <form action="/delete_store/{{store.getId}}" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit"> delete this store </button>
+                </form>
+            {% endfor %}
+            <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
+        {% endif %}
+    </div> <!-- container -->
+{% endblock %}
