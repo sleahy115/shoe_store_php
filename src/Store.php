@@ -21,7 +21,7 @@
         }
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO books (store_name) VALUES ('{$this->getStoreName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO stores (store_name) VALUES ('{$this->getStoreName()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -36,14 +36,20 @@
             }
             return $stores;
         }
-        static function deleteAll()
-        {
-
+        static function deleteAll() {
+            $GLOBALS['DB']->exec("DELETE FROM stores;");
         }
-        function find()
-        {
 
+        function find($search_id)
+        {
+            $found_store = $GLOBALS['DB']->query("SELECT * FROM stores WHERE id = {$search_id};");
+            $query = $found_store->fetchAll(PDO::FETCH_ASSOC);
+            $id = $query[0]['id'];
+            $title = $query[0]['store_name'];
+            $found_store = new Store($store_name, $id);
+            return $found_store;
         }
+        
         function update()
         {
 
