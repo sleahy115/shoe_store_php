@@ -20,7 +20,7 @@ class Brand
     }
     function save()
     {
-
+        
     }
     static function getAll()
     {

@@ -17,8 +17,9 @@ Shoe store application that allows a user to search brands by shoe store.
 * Go to import tab
 * Install shoe_store.zip.sql to access database structure
 * From project root, run > composer install --prefer-source --no-interaction
-* From web folder in project, open localhost:8888!!!! update
-* In web browser open localhost:8888!!!!!update
+* Go to MAMP settings set MAMP>Preferences>Web Server>Document Root to shoe_store/web
+* Restart MAMP server
+* open localhost:8888 in browser
 
 ## Known Bugs
 * No known bugs
