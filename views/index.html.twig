@@ -14,9 +14,11 @@
                 <button type="submit">Submit</button>
             </form>
 
+
             {% if stores is not empty %}
+            <p>Click on store name to view and add brands</p>
                 {% for store in stores %}
-                    <a href="add_brand/{{store.getId}}"><li>{{store.getStoreName}}</li></a>
+                    <a href="add_brand_to_store/{{store.getId}}"><li>{{store.getStoreName}}</li></a>
 
                     <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
 
@@ -26,6 +28,21 @@
                     </form>
                 {% endfor %}
                 <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
+            {% endif %}
+
+            <h1>Brands</h1>
+            <form action="/" method="post">
+                <label for="brand_name">Enter Brand name</label>
+                <input type="text" name="brand_name">
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if brands is not empty %}
+            <p>Click on brand name to view and add stores</p>
+                {% for brand in brands %}
+                    <a href="add_brand/{{brand.getId}}"><li>{{brand.getBrandName}}</li></a>
+                {% endfor %}
+                <a href="/delete_all_brands"><button type="button">Delete all brands</button></a>
             {% endif %}
         </div> <!-- container -->
         {% endblock %}
