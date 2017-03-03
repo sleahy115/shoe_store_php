@@ -24,6 +24,14 @@ Shoe store application that allows a user to search brands by shoe store.
 ## Known Bugs
 * No known bugs
 
+## SQL commands
+* CREATE DATABASE shoes;
+* USE shoes;
+* CREATE TABLE stores(id serial PRIMARY KEY, store_name VARCHAR (255));
+* CREATE TABLE brands(id serial PRIMARY KEY, brand_name VARCHAR (255));
+* CREATE TABLE brands_stores(id serial PRIMARY KEY, store_id INT, brand_id INT);
+
+
 ## Specifications
 
 | Behavior - Our Program should Handle?| Input         | Output |      
