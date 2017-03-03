@@ -94,7 +94,7 @@
             $new_store->save();
 
             //Act
-            $new_store->update($new_name);
+            $new_store->updateStore($new_name);
             $result = $new_store->getStoreName();
 
             //Assert

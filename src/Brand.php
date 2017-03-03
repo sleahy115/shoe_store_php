@@ -11,11 +11,11 @@
             $this->id = $id;
         }
 
-        function getbrandName()
+        function getBrandName()
         {
             return $this->brand_name;
         }
-        function setbrandName($brand_name)
+        function setBrandName($brand_name)
         {
             $this->brand_name = $brand_name;
         }
