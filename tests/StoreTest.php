@@ -85,7 +85,7 @@
             $this->assertEquals($new_store, $result);
         }
        //
-        function test_update()
+        function test_updateStore()
         {
             //Arrange
             $store_name = 'Macys';
@@ -101,22 +101,22 @@
             $this->assertEquals($new_name, $result);
         }
        //
-    //     function test_deleteStore()
-    //     {
-    //         //Arrange
-    //         $store_name = 'Nordstrom';
-    //         $test_store = new Store($store_name);
-    //         $test_store->save();
-       //
-    //         $store_name2 = 'Macys';
-    //         $test_store2 = new Store($store_name2);
-    //         $test_store2->save();
-       //
-    //         //Act
-    //         $test_store->deleteStore();
-    //         $result = Store::getAll();
-       //
-    //         //Assert
-    //         $this->assertEquals([$test_store2], $result);
-    //     }
+        function test_deleteStore()
+        {
+            //Arrange
+            $store_name = 'Nordstrom';
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $store_name2 = 'Macys';
+            $test_store2 = new Store($store_name2);
+            $test_store2->save();
+
+            //Act
+            $test_store->deleteStore();
+            $result = Store::getAll();
+
+            //Assert
+            $this->assertEquals([$test_store2], $result);
+        }
     }
