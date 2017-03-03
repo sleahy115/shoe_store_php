@@ -36,7 +36,7 @@ class Brand
     }
     static function deleteAll()
     {
-
+        $GLOBALS['DB']->exec("DELETE FROM brands;");
     }
     function find()
     {
