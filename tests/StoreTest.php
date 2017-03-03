@@ -85,21 +85,21 @@
             $this->assertEquals($new_store, $result);
         }
        //
-    //     function test_update()
-    //     {
-    //         //Arrange
-    //         $store_name = 'Macys';
-    //         $new_name = "JC Pennys";
-    //         $new_store = new Store($store_name);
-    //         $new_store->save();
-       //
-    //         //Act
-    //         $new_store->update($new_name);
-    //         $result = $new_store->getStoreName();
-       //
-    //         //Assert
-    //         $this->assertEquals($new_name, $result);
-    //     }
+        function test_update()
+        {
+            //Arrange
+            $store_name = 'Macys';
+            $new_name = "JC Pennys";
+            $new_store = new Store($store_name);
+            $new_store->save();
+
+            //Act
+            $new_store->update($new_name);
+            $result = $new_store->getStoreName();
+
+            //Assert
+            $this->assertEquals($new_name, $result);
+        }
        //
     //     function test_deleteStore()
     //     {

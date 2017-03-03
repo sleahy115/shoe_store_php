@@ -52,7 +52,7 @@
        {
            //Arrange
            $brand_name = 'Adidas';
-           $new_brand = new brand($brand_name);
+           $new_brand = new Brand($brand_name);
            $new_brand->save();
 
            $brand_name2 = 'Nike';
@@ -60,9 +60,24 @@
            $new_brand2->save();
 
            //Act
-           $result = brand::find($new_brand->getId());
+           $result = Brand::find($new_brand->getId());
 
            //Assert
            $this->assertEquals($new_brand, $result);
+       }
+       function test_updateBrand()
+       {
+           //Arrange
+           $brand_name = 'Adidas';
+           $new_name = "Nike";
+           $new_brand = new Brand($brand_name);
+           $new_brand->save();
+
+           //Act
+           $new_brand->updateBrand($new_name);
+           $result = $new_brand->getBrandName();
+
+           //Assert
+           $this->assertEquals($new_name, $result);
        }
     }
