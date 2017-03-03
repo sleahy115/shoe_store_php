@@ -17,6 +17,7 @@
             {% if stores is not empty %}
                 {% for store in stores %}
                 <li>{{store.getStoreName}}</li>
+                <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
                 {% endfor %}
                 <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
             {% endif %}
