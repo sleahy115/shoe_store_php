@@ -34,6 +34,7 @@
 
     $app->get("/delete_all_stores", function() use ($app) {
         Store::deleteAll();
+        Brand::deleteAll();
         return $app['twig']->render('index.html.twig', array('stores'=>Store::getAll()));
     });
 
@@ -73,5 +74,7 @@
         Brand::deleteAll();
         return $app->redirect("/add_brand/".$id);
     });
+
+
 
 return $app;

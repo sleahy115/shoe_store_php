@@ -80,24 +80,23 @@
         }
 
         function getbrands()
-                {
-                    $returned_brands = $GLOBALS['DB']->query(
-                        "SELECT brands.*
-                        FROM stores
-                        JOIN brands_stores ON (brands_stores.store_id = stores.id)
-                        JOIN brands ON (brands.id = brands_stores.brand_id)
-                        WHERE stores.id = {$this->getId()};"
-                    );
-                    $brands = array();
-                    foreach ($returned_brands as $brand) {
-                        $id = $brand['id'];
-                        $brand_name = $brand['brand_name'];
-                        $new_brand = new brand($brand_name, $id);
-                        array_push($brands, $new_brand);
-                    }
-                    var_dump($brands);
-                    return $brands;
-                }
+        {
+            $returned_brands = $GLOBALS['DB']->query(
+                "SELECT brands.*
+                FROM stores
+                JOIN brands_stores ON (brands_stores.store_id = stores.id)
+                JOIN brands ON (brands.id = brands_stores.brand_id)
+                WHERE stores.id = {$this->getId()};"
+            );
+            $brands = array();
+            foreach ($returned_brands as $brand) {
+                $id = $brand['id'];
+                $brand_name = $brand['brand_name'];
+                $new_brand = new brand($brand_name, $id);
+                array_push($brands, $new_brand);
+            }
+            return $brands;
+        }
     }
 
  ?>

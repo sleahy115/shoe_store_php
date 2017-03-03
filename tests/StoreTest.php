@@ -17,12 +17,14 @@
         {
             Store:: deleteAll();
             Brand:: deleteAll();
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
         }
         function test_getAll()
         {
             $store_name = "Nordstrom";
             $store_test = new Store($store_name);
             $store_test->save();
+
 
             $store_name2 = "Macys";
             $store_test2 = new Store($store_name2);
@@ -45,6 +47,7 @@
            $store_test2->save();
            //Act
            $result = Store::getAll();
+
            //Assert
            $this->assertEquals($result[0],$store_test);
        }
@@ -160,10 +163,6 @@
             $test_store->addBrands($test_brand);
             $test_store->addBrands($test_brand2);
             $result = $test_store->getBrands();
-            var_dump("result");
-            var_dump($result);
-            var_dump("test");
-            var_dump([$test_brand, $test_brand2]);
 
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
