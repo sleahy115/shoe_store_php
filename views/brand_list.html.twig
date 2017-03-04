@@ -10,12 +10,18 @@
         </form>
 
         {% if brands is not empty %}
-        <p>Click on brand name to view and add stores</p>
+            <p>Click on brand name to view and add stores</p>
             {% for brand in brands %}
-                <a href="add_store_by_brand/{{brand.getId}}"><li>{{brand.getBrandName}}</li></a>
-            {% endfor %}
-            <a href="/delete_all_brands"><button type="button">Delete all brands</button></a>
-        {% endif %}
-        <a href="/"><button type="button">Home</button>
-    </div> <!-- container -->
+                <a href="add_store_by_brand/{{brand.getId}}">
+                <li>{{brand.getBrandName}}</li>
+            </a>
+        {% endfor %}
+        <a href="/delete_all_brands">
+            <button type="button">Delete all brands</button>
+        </a>
+    {% endif %}
+    <a href="/">
+        <button type="button">Home</button>
+    </div>
+    <!-- container -->
 {% endblock %}

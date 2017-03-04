@@ -106,13 +106,13 @@
         return $app->redirect("/");
     });
     $app->get("/delete_all_stores/{id}", function($id) use ($app) {;
-        $brand = Brand::find($id);
-        Store::DeleteStoreByBrand($brand);
+        $store = Store::find($id);
+        Store::DeleteStoreByBrand($store);
         return $app->redirect("/");
     });
     $app->delete("/delete_all_stores/{id}", function($id) use ($app) {;
-        $brand = Brand::find($id);
-        Store::DeleteStoreByBrand($brand);
+        $store = Store::find($id);
+        Store::DeleteStoreByBrand($store);
         return $app->redirect("/");
     });
 

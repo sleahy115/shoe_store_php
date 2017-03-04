@@ -97,9 +97,9 @@
             }
             return $stores;
         }
-        static function DeleteStoreByBrand($brand)
+        static function DeleteStoreByBrand($store)
         {
-            $id = $brand->getId();
+            $id = $store->getId();
             $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE store_id = {$id};");
         }
 

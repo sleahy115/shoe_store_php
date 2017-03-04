@@ -11,16 +11,28 @@
         {% if stores is not empty %}
             <p>Click on store name to view and add brands</p>
             {% for store in stores %}
-                <a href="add_brand_to_store/{{store.getId}}"><li>{{store.getStoreName}}</li></a>
+                <a href="add_brand_to_store/{{store.getId}}">
+                <li>{{store.getStoreName}}</li>
+            </a>
 
-                <a href="/update_store/{{store.getId}}"><button type="button">Update this store</button></a>
+            <a href="/update_store/{{store.getId}}">
+                <button type="button">Update this store</button>
+            </a>
 
-                <form action="/delete_store/{{store.getId}}" method="post">
-                    <input type="hidden" name="_method" value="delete">
-                    <button type="submit"> delete this store </button>
-                </form>
-            {% endfor %}
-            <a href="/delete_all_stores"><button type="button">Delete all stores</button></a>
-        {% endif %}
-    </div> <!-- container -->
+            <form action="/delete_store/{{store.getId}}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">
+                    delete this store
+                </button>
+            </form>
+        {% endfor %}
+        <a href="/delete_all_stores">
+            <button type="button">Delete all stores</button>
+        </a>
+        <a href="/">
+            <button>Home</button>
+        </a>
+    {% endif %}
+</div>
+<!-- container -->
 {% endblock %}

@@ -2,11 +2,13 @@
 
 {% block body %}
     <div class="container">
-        <h1>update {{store.getStoreName}}</h1>
+        <h1>update
+            {{store.getStoreName}}</h1>
 
         <form action="/update_store/{{store.getId}}" method="post">
             <input type="hidden" name="_method" value="patch">
-            <label for="new_name">Enter new store name </label>
+            <label for="new_name">Enter new store name
+            </label>
             <input type="text" name="new_name">
             <button type="submit">Update</button>
         </form>

@@ -166,4 +166,27 @@
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
 
+        function test_deleteBrandByStore()
+        {
+            //Arrange
+            $store_name = 'Nordstrom';
+            $test_store = new Store($store_name);
+            $test_store->save();
+
+            $store_name2 = 'Nordstrom';
+            $test_store2 = new Store($store_name2);
+            $test_store2->save();
+
+            $brand_name = 'Adidas';
+            $test_brand = new Brand($brand_name);
+            $test_brand->save();
+
+            //Act
+            Store::DeleteBrandByStore($test_store);
+            $result = $result = $test_store->getBrands();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
+
     }

@@ -2,7 +2,8 @@
 
 {% block body %}
     <div class="container">
-        <h1>Add store to {{brand.getBrandName}}</h1>
+        <h1>Add store to
+            {{brand.getBrandName}}</h1>
         <form action="/add_store_by_brand/{{brand.getId}}" method="post">
             <select name="store_id">
                 {% for store in stores %}
@@ -10,18 +11,23 @@
                     </option>
                 {% endfor %}
             </select>
-            <button type="submit"> Add </button>
+            <button type="submit">
+                Add
+            </button>
         </form>
 
-    {% if stores_by_brand is not empty %}
-        {% for store in stores_by_brand %}
-            <li>{{store.getStoreName}}</li>
-        {% endfor %}
-        <form action="/delete_all_stores/{{brand.getId}}" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <button type="submit">delete all stores from brand</button>
-        </form>
-    {% endif %}
-    <a href="/"><button type="button">home</button></a>
-    </div><!-- container -->
+        {% if stores_by_brand is not empty %}
+            {% for store in stores_by_brand %}
+                <li>{{store.getStoreName}}</li>
+                <form action="/delete_all_stores/{{brand.getId}}" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit">delete store from brand</button>
+                </form>
+            {% endfor %}
+        {% endif %}
+        <a href="/">
+            <button type="button">home</button>
+        </a>
+    </div>
+    <!-- container -->
 {% endblock %}
