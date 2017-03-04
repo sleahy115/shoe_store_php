@@ -105,7 +105,16 @@
         Brand::deleteAll();
         return $app->redirect("/");
     });
-
+    $app->get("/delete_all_stores/{id}", function($id) use ($app) {;
+        $brand = Brand::find($id);
+        Store::DeleteStoreByBrand($brand);
+        return $app->redirect("/");
+    });
+    $app->delete("/delete_all_stores/{id}", function($id) use ($app) {;
+        $brand = Brand::find($id);
+        Store::DeleteStoreByBrand($brand);
+        return $app->redirect("/");
+    });
 
 
 return $app;

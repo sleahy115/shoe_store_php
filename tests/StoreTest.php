@@ -146,7 +146,6 @@
         function test_getBrands()
         {
             //Arrange
-
             $store_name = 'Nordstrom';
             $test_store = new Store($store_name);
             $test_store->save();
@@ -166,4 +165,5 @@
 
             $this->assertEquals([$test_brand, $test_brand2], $result);
         }
+
     }

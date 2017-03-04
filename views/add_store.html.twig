@@ -17,7 +17,10 @@
         {% for store in stores_by_brand %}
             <li>{{store.getStoreName}}</li>
         {% endfor %}
-        <a href="/delete_all_stores/{{brand.getId}}"><button>delete all stores from brand</button></a>
+        <form action="/delete_all_stores/{{brand.getId}}" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">delete all stores from brand</button>
+        </form>
     {% endif %}
     <a href="/"><button type="button">home</button></a>
     </div><!-- container -->
