@@ -103,4 +103,10 @@
             $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE store_id = {$id};");
         }
 
+        static function deleteJoin()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
+        }
+
+
     }
