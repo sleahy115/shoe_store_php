@@ -50,6 +50,7 @@
 
         static function deleteAll() {
             $GLOBALS['DB']->exec("DELETE FROM brands;");
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores");
         }
 
         static function find($search_id)
@@ -70,6 +71,7 @@
         function deleteBrand()
         {
             $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()};");
         }
 
         function addStore($store)
@@ -103,10 +105,7 @@
             $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE store_id = {$id};");
         }
 
-        static function deleteJoin()
-        {
-            $GLOBALS['DB']->exec("DELETE FROM brands_stores;");
-        }
+
 
 
     }

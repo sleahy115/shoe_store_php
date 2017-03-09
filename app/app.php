@@ -50,7 +50,6 @@
     $app->get("/delete_all_stores", function() use ($app) {
         Store::deleteAll();
         Brand::deleteAll();
-        Brand::deleteJoin();
         return $app->redirect("/");
     });
 
